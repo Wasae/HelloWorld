@@ -1,4 +1,4 @@
-let domPlayerModule=(function(params) {
+let domPlayerModule=(function() {
     function getById(elid) {
         return document.getElementById(elid)
     }
@@ -47,10 +47,34 @@ let domPlayerModule=(function(params) {
         }
     }
 
+    function ShowElement(el) {
+        try {
+            if (el && el.style && el.style.display) {
+                el.style.display=''
+            }   
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    function HideElement(el) {
+        try {
+            if (el && el.style && el.style.display) {
+                el.style.display='none'
+            }   
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
     return {
         Attributer:AttrValue,
         SetClass:SetClass,
         RemoveClass:RemoveClass,
+        ShowElement:ShowElement,
+        HideElement:HideElement,           
+
         getElementById:getById,
         getElementByClass:getByClass
     }
