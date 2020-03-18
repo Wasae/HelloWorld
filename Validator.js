@@ -1,0 +1,6 @@
+let validatorModule=(function() {
+   
+    return{
+        
+    }
+}())
