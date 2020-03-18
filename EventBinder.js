@@ -31,7 +31,8 @@ let eventBinderModule=(function(byid,byclass){
                 console.log(sel)
             }   
         } catch (error) {
-            
+            console.log(sel)
+            console.log(error)
         }
     }
 
