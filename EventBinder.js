@@ -1,8 +1,8 @@
-let eventBinderModule=(function(dp){
+let eventBinderModule=(function(byid,byclass){
     function BindEventByClass(sel,type,fn) {
         try {
             if (sel && type && fn) {
-                let els=dp.getElementByClass(sel)
+                let els=byclass(sel)
                 if (els && els.length!=0) {
                     for (let ii = 0; ii < els.length; ii++) {
                         const element = els[ii];
@@ -22,7 +22,7 @@ let eventBinderModule=(function(dp){
     function BindEventById(sel,type,fn) {
         try {
             if (sel && type && fn) {
-                let el=dp.getElementById(sel)
+                let el=byid(sel)
                 if (el) {
                     el.addEventListener(type,fn)
                 }
@@ -39,4 +39,4 @@ let eventBinderModule=(function(dp){
         ClassEventBinder:BindEventByClass,
         BindEventById:BindEventById
     }
-}(domPlayerModule))
+}(domPlayerModule.getElementById,domPlayerModule.getElementByClass))
